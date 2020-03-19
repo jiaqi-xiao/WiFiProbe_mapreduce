@@ -13,19 +13,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-/**
- * Created by cuihao on 2017-05-21.
- * Generator
- */
+
 public class MockGenerator {
     private static long count = 0;
 
     public static void main(String[] args) {
         int testNum = 8;
         for (int i = 0; i < testNum; i++) {
-//            //duration time exponential growth
-//            int duration = (int) Math.pow(2, i);
-
             //number of stores
             int storeNum = (int) Math.pow(2, i);
             try {
@@ -63,19 +57,10 @@ public class MockGenerator {
 //            e.printStackTrace();
 //        }
     }
-    //random mac
 
+    //random mac
     public static ArrayList<String> randomMac(int num) {
-//        Random random = new Random();
-//        String[] mac = {
-//                String.format("%02x", 0x52),
-//                String.format("%02x", 0x54),
-//                String.format("%02x", 0x00),
-//                String.format("%02x", random.nextInt(0xff)),
-//                String.format("%02x", random.nextInt(0xff)),
-//                String.format("%02x", random.nextInt(0xff))
-//        };
-//        return String.join(":", mac);
+
         ArrayList<String> macAdd = new ArrayList();
         for (int i = 0; i < num; i++) {
             Random random = new Random();
@@ -184,9 +169,6 @@ public class MockGenerator {
             ArrayList<String> macAdd = randomMac(100);
             String[] mac = (String[]) macAdd.toArray(new String[macAdd.size()]);
             for (long time = start; time < end; time+=Math.random()*rand) {
-//        for (long time = start; time < end; time=start+getPossionVariable(rand*2, rand)) {
-//        for (int i = 0; i < count; i++) {
-//            long time = start + (long)getPossionVariable(rand/2, rand);
 
                 PhoneJson phoneJson = phoneJsonPrototype.clone();
                 phoneJson.setMac(mac[(int)(Math.random()*mac.length)]);
